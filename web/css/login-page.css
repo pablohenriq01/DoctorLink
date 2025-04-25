@@ -3,3 +3,78 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body {
+    
+    background:url('/web/images/fundo-tela-login.avif') ;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+}
+
+.display-login {
+    background-color: #282828;
+    width: 535px;
+    height: 550px;
+    border-radius: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    padding: 10px;
+    margin-top: calc(50vh - 275px);
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+
+}
+
+.display-login h1 {
+    color:#FFFFFF;
+    font-size: 22px;
+    margin-top: 5px;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.display-form-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+
+}
+
+.input-login {
+    width: 336px;
+    height: 45px;
+    display: flex;
+    margin-top: 30px;
+}
+
+.btn-login-entry {
+    width: 336px;
+    height: 45px;
+    background-color: #490EF8;
+    border-radius: 5px;
+    border: none;
+    color: #FFFFFF;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: background-color 0.3s;
+}
+
+.btn-login-entry:hover {
+    background-color: #29088b;
+}
+
+.text-login-register {
+    color: #FFFFFF;
+    font-size: 20px;
+    margin-top: 30px;
+}
+
+.route-register {
+    color: #490EF8;
+    text-decoration: underline;
+    font-weight: bold;
+}
