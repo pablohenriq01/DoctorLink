@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     background: url('/web/images/fundo-tela-login.avif');
     background-size: cover;
@@ -6,6 +12,16 @@ body {
     align-items: center;     
     justify-content: center;  
     height: 100vh;            
+}
+.display-login > h1 {
+    margin-bottom: 10%;
+}
+
+.display-login p{
+    margin-bottom: 2%;
+    margin-top: 2%;
+    font-size: 1.2em;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .input-login {
@@ -24,4 +40,21 @@ body {
     font-size: 16px;
     font-family: 'Poppins', sans-serif;
     outline: none;
+}
+
+.btn-register {
+    width: 336px;
+    height: 45px;
+    background-color: #490EF8;
+    border-radius: 5px;
+    border: none;
+    color: #FFFFFF;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: background-color 0.3s;
+}
+
+.btn-register:hover {
+    background-color: #29088b;
 }
