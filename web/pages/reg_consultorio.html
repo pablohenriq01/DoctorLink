@@ -1,54 +1,39 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de Consultorio</title>
     <link rel="stylesheet" href="/web/css/reg_consultorio.css">
+    <script src="../js/reg_consultorio.js" defer></script>
 </head>
 <body>
     <div class="display-login">
         <h1>Registro de Consultorio</h1>
-        <form class="display-form-login" action="#" method="post">
+        <form class="display-form-login" method="post">
             <p>Nome do doutor</p>
             <div class="input-login">
-                <input type="text" name="nome" placeholder="" required class="input-field">
-            </div>
-            <p>Nome do consultório</p>
-            <div class="input-login">
-                <input type="text" name="nome_consultorio" placeholder="Nome do consultório" required class="input-field">
+                <input type="text" name="name" id="name" class="input-field">
             </div>
             <p>Email</p>
             <div class="input-login">
-                <input type="text" name="email" placeholder="Email" required class="input-field">
+                <input type="text" name="email" id="email" required class="input-field">
             </div>
             <p>Senha</p>
             <div class="input-login">
-                <input type="password" name="senha" placeholder="Senha" required class="input-field">
-            </div>
-            <p>CRM</p>
-            <div class="input-login">
-                <input type="text" name="crm" placeholder="CRM" required class="input-field">
-            </div>
-            <p>Telefone</p>
-            <div class="input-login">
-                <input type="text" name="telefone" placeholder="Telefone" required class="input-field" maxlength="20">
+                <input type="password" name="password" id="password" required class="input-field" minlength="8">
             </div>
             <p>Especialidade</p>
             <div class="input-login">
-                <input type="text" name="especialidade" placeholder="Especialidade" required class="input-field">
-            </div>
-            <p>Endereço</p>
-            <div class="input-login">
-                <input type="text" name="endereco" placeholder="Endereço" required class="input-field">
+                <input type="text" name="specialty" id="specialty" required class="input-field">
             </div>
             <p>Horario Atendimento Inicial</p>
             <div class="input-login">
-                <input type="time" name="horario_inicial" placeholder="Horario inicial" required class="input-field">
+                <input type="text" name="start-time" id="start-time" placeholder="HH:MM:SS" minlength="8" required class="input-field">
             </div>
             <p>Horario Atendimento Final</p>
             <div class="input-login">
-                <input type="time" name="horario_final" placeholder="Horario final" required class="input-field">
+                <input type="text" name="end-time" id="end-time" placeholder="HH:MM:SS" minlength="8" required class="input-field">
             </div>
             <div class="input-login">
                 <button type="submit" class="btn-register">Registrar</button>
