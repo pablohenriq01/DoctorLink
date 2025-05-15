@@ -1,4 +1,4 @@
-const nameDoctor = document.getElementById("name");
+const nameConsultancy = document.getElementById("name");
 const email = document.getElementById("email");
 const password = document.getElementById("password");
 const specialty = document.getElementById("specialty");
@@ -6,7 +6,7 @@ const startTime = document.getElementById("start-time");
 const endTime = document.getElementById("end-time");
 const registerButton = document.querySelector(".btn-register");
 
-const postValidationRegister = async () => { 
+const postRegisterConsultancy = async () => {
     try {
         const response = await fetch("http://localhost:8080/doctor/register", {
             method: "POST",
@@ -14,7 +14,7 @@ const postValidationRegister = async () => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                name: nameDoctor.value,
+                nameConsultancy: nameConsultancy.value,
                 email: email.value,
                 password: password.value,
                 specialty: specialty.value,
@@ -22,21 +22,23 @@ const postValidationRegister = async () => {
                 endTime: endTime.value
             })
         })
-
+        const data = await response.text();
+        
         if (response.status === 202) {
-            const data = await response.json();
-            alert("Doutor registrado com sucesso");
-
+            alert(data);
+            window.location.href = "/web/pages/login-page.html";
         } else {
-            alert("Erro ao registrar o médico");
+            console.log(response.status)
+            alert(data);
         }
     } catch (error) {
-        alert("Erro na requisição");
+        alert("Erro de requisição")
     }
+    
 }
 
 registerButton.addEventListener("click", async (event) => {
     event.preventDefault();
-    await postValidationRegister();
+    await postRegisterConsultancy();
 })
 

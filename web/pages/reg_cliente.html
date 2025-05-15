@@ -5,30 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de Cliente</title>
     <link rel="stylesheet" href="/web/css/reg_cliente.css">
+    <script src="../js/reg_cliente.js" defer></script>
 </head>
 <body>
     <div class="display-login">
-        <h1>Registro de Cliente</h1>
-        <form class="display-form-login" action="#" method="post">
+        <h1>Registro de paciente</h1>
+        <form class="display-form-login" method="post">
             <p>Nome completo</p>
             <div class="input-login">
-                <input type="text" name="nome" placeholder="" required class="input-field">
+                <input type="text" name="name" id="name" required class="input-field">
             </div>
             <p>Email</p>
             <div class="input-login">
-                <input type="text" name="email" placeholder="Email" required class="input-field" minlength="8">
+                <input type="text" name="email" id="email" required class="input-field" minlength="8">
             </div>
             <p>Senha</p>
             <div class="input-login">
-                <input type="password" name="senha" placeholder="Senha" required class="input-field">
+                <input type="password" name="password" id="password" placeholder="Senha" required class="input-field">
             </div>
             <p>Data Nascimento</p>
             <div class="input-login">
-                <input type="date" name="data_nascimento" placeholder="Data nasc" class="input-field">
+                <input type="date" name="dateBirth" id="dateBirth" placeholder="Data nasc" class="input-field">
             </div>
             <p>Telefone</p>
             <div class="input-login">
-                <input type="text" name="telefone" placeholder="Telefone" required class="input-field" maxlength="20">
+                <input type="text" name="telephone" id="telephone" placeholder="11 999999999" required class="input-field" maxlength="12">
             </div>
           
             <div class="input-login">
