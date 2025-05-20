@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Marcar Consulta</title>
+  <link rel="stylesheet" href="/web/css/inicio.css" />
+  <link rel="stylesheet" href="/web/css/marcar_consu.css" />
+</head>
+<body>
+
+  <!-- Cabeçalho com nome da clínica -->
+  <header>
+    <div class="logo">
+      <h1>DoctorLink</h1>
+    </div>
+  </header>
+
+  <main>
+    <h2>Marcar Consulta</h2>
+    <div class="form-container">
+      <form id="consulta-form">
+        <!-- Clínicas -->
+        <label for="clinica">Escolha a clínica:</label>
+        <select id="clinica" name="clinica" required>
+          <option value="">Carregando clínicas...</option>
+        </select>
+
+        <!-- Especialidades -->
+        <label for="especialidade">Especialidade:</label>
+        <select id="especialidade" name="especialidade" required>
+          <option value="">Carregando especialidades...</option>
+        </select>
+
+        <!-- Data -->
+        <label for="data">Data da consulta:</label>
+        <input type="date" id="data" name="data" required>
+
+        <!-- Horários -->
+        <label for="horario">Horário disponível:</label>
+        <select id="horario" name="horario" required>
+          <option value="">Selecione o horario</option>
+        </select>
+
+        <button type="submit">Confirmar Consulta</button>
+      </form>
+    </div>
+  </main>
+
+  <script>
+    async function carregarClinicas() {
+      try {
+        const response = await fetch('/api/clinicas');
+        const clinicas = await response.json();
+        const select = document.getElementById('clinica');
+        select.innerHTML = '<option value="">Selecione uma clínica</option>';
+        clinicas.forEach(c => {
+          const option = document.createElement('option');
+          option.value = c.id;
+          option.textContent = c.nome;
+          select.appendChild(option);
+        });
+      } catch (error) {
+        console.error('Erro ao carregar clínicas:', error);
+      }
+    }
+
+    async function carregarEspecialidades() {
+      try {
+        const response = await fetch('/api/especialidades');
+        const especialidades = await response.json();
+        const select = document.getElementById('especialidade');
+        select.innerHTML = '<option value="">Selecione uma especialidade</option>';
+        especialidades.forEach(e => {
+          const option = document.createElement('option');
+          option.value = e.id;
+          option.textContent = e.nome;
+          select.appendChild(option);
+        });
+      } catch (error) {
+        console.error('Erro ao carregar especialidades:', error);
+      }
+    }
+
+    async function carregarHorarios() {
+      const data = document.getElementById('data').value;
+      const clinicaId = document.getElementById('clinica').value;
+      const especialidadeId = document.getElementById('especialidade').value;
+
+      if (!data || !clinicaId || !especialidadeId) return;
+
+      try {
+        const response = await fetch(`/api/horarios?data=${data}&clinicaId=${clinicaId}&especialidadeId=${especialidadeId}`);
+        const horarios = await response.json();
+        const select = document.getElementById('horario');
+        select.innerHTML = '<option value="">Selecione um horário</option>';
+        horarios.forEach(h => {
+          const option = document.createElement('option');
+          option.value = h;
+          option.textContent = h;
+          select.appendChild(option);
+        });
+      } catch (error) {
+        console.error('Erro ao carregar horários:', error);
+      }
+    }
+
+    document.getElementById('data').addEventListener('change', carregarHorarios);
+    document.getElementById('clinica').addEventListener('change', carregarHorarios);
+    document.getElementById('especialidade').addEventListener('change', carregarHorarios);
+
+    carregarClinicas();
+    carregarEspecialidades();
+  </script>
+
+</body>
+</html>

@@ -29,8 +29,13 @@
   }
   
   main {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   /* Centraliza verticalmente */
+    align-items: center;       /* Centraliza horizontalmente */
     padding: 50px 20px;
+    min-height: 70vh;          /* Altura mínima para centralização funcionar */
+    text-align: center;
   }
   
   main h2 {
@@ -39,6 +44,7 @@
   
   .menu {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     flex-wrap: wrap;
     gap: 20px;
