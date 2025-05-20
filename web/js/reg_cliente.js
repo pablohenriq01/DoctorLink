@@ -24,7 +24,7 @@ const postRegisterPatient = async () => {
         console.log(datebirth.value)
         const data = await response.text();
         
-        if (response.status === 202) {
+        if (response.status === 201) {
             alert(data);
             window.location.href = "/web/pages/login-page.html";
         } else {

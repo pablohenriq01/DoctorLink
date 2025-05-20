@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DoctorLink</title>
+  <link rel="stylesheet" href="/web/css/inicio.css"/>
+  <script src="/web/js/chat-bot.js" defer></script>
+</head>
+<body>
+
+  <div class="chatbot-container">
+    <button class="chatbot-btn" onclick="toggleChat()">💬</button>
+    <div id="chat-popup" class="chat-popup">
+      <div class="chat-header">
+        <strong>Atendimento</strong>
+        <button onclick="toggleChat()">✖️</button>
+      </div>
+      <div class="chat-body" id="chat-body">
+        <p><strong>Bot:</strong> Olá! Como posso ajudar?</p>
+        <div class="chat-options" id="chat-options">
+          <button onclick="responderChat('agendar')">📅 Marcar Consulta</button>
+          <button onclick="responderChat('sobre')">🧑‍⚕️ Sobre o nós</button>
+          <button onclick="responderChat('endereco')">📍 Endereço da Clínica</button>
+          <button onclick="responderChat('contato')">📞 Contato</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <div class="logo">
+      <h1>DoctorLink</h1>
+    </div>
+  </header>
+
+  <main>
+    <h2>Bem-vindo ao nosso sistema!</h2>
+    <div class="menu">
+      <a href="/web/pages/carregar-consultorios.html" class="card">🏢 Ver consultorios</a>
+    </div>
+    <div class="menu">
+      <a href="/web/pages/carregar-consultas.html" class="card">📜 Ver minhas consultas</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>Desenvolvedores: Pablo Henrique - Mateus Mota - Joao Victor </p>
+    <p>2025 Alunos UniFECAF - Trabalho Semestral</p>
+  </footer>
+
+</body>
+</html>

@@ -16,7 +16,7 @@ const postRegisterConsultancy = async () => {
             body: JSON.stringify({
                 nameConsultancy: nameConsultancy.value,
                 email: email.value,
-                password: password.value,
+                password: password.value,   
                 specialty: specialty.value,
                 startTime: startTime.value,
                 endTime: endTime.value

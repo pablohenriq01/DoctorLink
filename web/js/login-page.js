@@ -16,10 +16,17 @@ const getValidationLogin = async () => {
             })
         });
 
-        const data = await response.text();
+        const data = await response.json();
         
-        if (response.status === 202) {
+        if (response.status === 200) {
+            localStorage.setItem("typeUser", data.typeUser);
+            localStorage.setItem("userId", data.userId);
             
+            if(data.typeUser === 1) {
+                window.location.href = "/web/pages/inicio-paciente.html";
+            } else if(data.typeUser === 2) { 
+                window.location.href = "/web/pages/inicio-consultorio.html";
+            }
       
         } else {
             alert(data);
