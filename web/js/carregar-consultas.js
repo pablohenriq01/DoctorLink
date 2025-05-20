@@ -1,3 +1,9 @@
+
+if (!localStorage.getItem("userId")) {
+    alert("Você não está logado. Redirecionando para a página de login.");
+    window.location.href = "/web/pages/login-page.html"; 
+}
+
 const carregarConsultas = async () => {
     const userId = localStorage.getItem("userId");
     const typeUser = localStorage.getItem("typeUser");
@@ -9,7 +15,12 @@ const carregarConsultas = async () => {
         const consultas = await response.json();
 
         const container = document.getElementById("consultas-container");
-        container.innerHTML = ""; // limpar antes de adicionar
+        container.innerHTML = ""; 
+
+        if (!Array.isArray(consultas) || consultas.length === 0) {
+            lista.innerHTML = "<p>Nenhum consultório marcada.</p>";
+            return;
+        }
 
         consultas.forEach(consulta => {
             const div = document.createElement("div");
@@ -32,6 +43,11 @@ const carregarConsultas = async () => {
 
         const container = document.getElementById("consultas-container");
         container.innerHTML = "";
+
+        if (!Array.isArray(consultas) || consultas.length === 0) {
+            lista.innerHTML = "<p>Nenhum consulta marcada.</p>";
+            return;
+        }
 
         consultas.forEach(consulta => {
             const div = document.createElement("div");

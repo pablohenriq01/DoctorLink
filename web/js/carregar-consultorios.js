@@ -1,4 +1,9 @@
 
+if (!localStorage.getItem("userId")) {
+    alert("Você não está logado. Redirecionando para a página de login.");
+    window.location.href = "/web/pages/login-page.html"; 
+}
+
 const carregarConsultorios = async () => { 
     const response = await fetch("http://localhost:8080/doctor");
     const data = await response.json();

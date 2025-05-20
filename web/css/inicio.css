@@ -31,10 +31,9 @@
   main {
     display: flex;
     flex-direction: column;
-    justify-content: center;   /* Centraliza verticalmente */
     align-items: center;       /* Centraliza horizontalmente */
     padding: 50px 20px;
-    min-height: 70vh;          /* Altura mínima para centralização funcionar */
+    min-height: 79vh;          /* Altura mínima para centralização funcionar */
     text-align: center;
   }
   
