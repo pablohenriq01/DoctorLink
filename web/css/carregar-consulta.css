@@ -23,12 +23,7 @@
     font-size: 24px;
   }
   
-  main {
-    text-align: center;
-    width: 1900px;
-    padding: 50px 20px;
-  }
-  
+ 
   main h2 {
     margin-bottom: 30px;
   }
@@ -62,6 +57,26 @@
 }
 
 .consulta-card p {
-    margin: 6px 0;
+  margin: 4px 0;
     color: #555;
+}
+
+.btn-consulta {
+    margin-top: 10px;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#cancelamento {
+    background-color: #a51202;
+    color: white;
+}
+
+#finalizacao {
+    background-color: #009a12;
+    color: white;
 }

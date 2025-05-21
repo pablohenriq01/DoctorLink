@@ -31,9 +31,9 @@
   main {
     display: flex;
     flex-direction: column;
-    align-items: center;       /* Centraliza horizontalmente */
+    align-items: center;       
     padding: 50px 20px;
-    min-height: 79vh;          /* Altura mínima para centralização funcionar */
+    min-height: 79vh;         
     text-align: center;
   }
   

@@ -50,6 +50,10 @@ main h2 {
   color: #2a5d9f;
 }
 
+.consultorio p {
+  margin: 10px 0;
+}
+
 .btn-consulta {
   margin-top: 10px;
   background-color: #2d89e5;
