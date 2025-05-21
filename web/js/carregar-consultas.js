@@ -35,6 +35,7 @@ const carregarConsultas = async () => {
                 <p><strong>Data de nascimento:</strong> ${consulta.patient.dateBirth}
                 <hr>
                 <p><strong>Data da consulta:</strong> ${consulta.date}</p>
+                <p><strong>Horário da consulta:</strong> ${consulta.timeInitial} - ${consulta.timeFinal}</p>
                 <p><strong>Status da consulta:</strong> ${consulta.status}</p>
                 
             `;
@@ -67,6 +68,7 @@ const carregarConsultas = async () => {
                     <p><strong>Telefone:</strong> ${consulta.patient.telephone}</p>
                     <hr>
                     <p><strong>Data da consulta:</strong> ${consulta.date}</p>
+                    <p><strong>Horário da consulta:</strong> ${consulta.timeInitial} - ${consulta.timeFinal}</p>
                     <p><strong>Status da consulta:</strong> ${consulta.status}</p>`
                     
                 if (consulta.status === "Marcado") { div.innerHTML +=
