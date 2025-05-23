@@ -3,18 +3,14 @@ if (!localStorage.getItem("userId")) {
     window.location.href = "/web/pages/login-page.html";
 }
 
-const horariosDisponiveis = [
-    { inicio: "13:30", fim: "14:00" },
-    { inicio: "16:00", fim: "16:30" },
-    { inicio: "18:15", fim: "18:45" },
-    { inicio: "20:00", fim: "20:30" }
-];
+var consultorios = [];
 
 let idConsultorioSelecionado = null;
 
 const carregarConsultorios = async () => {
     const response = await fetch("http://localhost:8080/doctor");
     const data = await response.json();
+    consultorios = data;
 
     const lista = document.getElementById("lista-consultorios");
     lista.innerHTML = "";
@@ -41,10 +37,13 @@ const carregarConsultorios = async () => {
 const abrirSeletorHorario = (consultorioId) => {
     idConsultorioSelecionado = consultorioId;
 
+    const consultorio = consultorios.find(c => c.id === consultorioId); 
+    const horariosGerados = gerarHorariosComIntervalo(consultorio.startTime, consultorio.endTime);
+
     const tabela = document.getElementById("tabela-horarios");
     tabela.innerHTML = "";
 
-    horariosDisponiveis.forEach((h, index) => {
+    horariosGerados.forEach(h => {
         const tr = document.createElement("tr");
         tr.innerHTML = `
             <td>${h.inicio} - ${h.fim}</td>
@@ -55,6 +54,7 @@ const abrirSeletorHorario = (consultorioId) => {
 
     document.getElementById("seletor-horario").style.display = "flex";
 };
+
 
 const fecharSeletor = () => {
     document.getElementById("seletor-horario").style.display = "none";
@@ -85,5 +85,37 @@ const marcarConsulta = async (horaInicio, horaFim) => {
 
     fecharSeletor();
 };
+
+function gerarHorariosComIntervalo(start, end) {
+    const [startH, startM] = start.split(":").map(Number);
+    const [endH, endM] = end.split(":").map(Number);
+
+    const inicio = new Date();
+    inicio.setHours(startH, startM, 0, 0);
+
+    const fim = new Date();
+    fim.setHours(endH, endM, 0, 0);
+
+    const horarios = [];
+
+    const atual = new Date(inicio);
+    while (true) {
+        const consultaInicio = new Date(atual);
+        const consultaFim = new Date(consultaInicio);
+        consultaFim.setHours(consultaFim.getHours() + 1); 
+
+        if (consultaFim > fim) break;
+
+        horarios.push({
+            inicio: consultaInicio.toTimeString().slice(0, 5),
+            fim: consultaFim.toTimeString().slice(0, 5)
+        });
+
+        atual.setHours(atual.getHours() + 2); 
+    }
+
+    return horarios;
+}
+
 
 carregarConsultorios();
